@@ -15,6 +15,7 @@ Only files from `site/` belong in the public document root. Do not copy credenti
 
 1. Preview the site locally and verify the context tabs, sample note saving, prompt preparation, and narrow-screen layout.
 2. Copy `site/` into a new timestamped directory under `/var/www/ownsafeai-releases/`.
+   When packaging on macOS, exclude extended attributes and AppleDouble metadata: `COPYFILE_DISABLE=1 tar --no-xattrs -czf /tmp/ownsafeai-site.tar.gz -C site .`.
 3. Ensure Nginx can read the release (directories `0755`, files `0644`).
 4. Preserve the previous document root as a rollback copy. For the first conversion from a directory to a release symlink, move the original directory into the releases folder.
 5. Point `/var/www/ownsafeai` at the new release. Future symlink changes can be atomic.
@@ -25,3 +26,9 @@ The Nginx configuration gives CSS, JavaScript and images a long immutable cache 
 ## Rollback
 
 Point `/var/www/ownsafeai` at the previous release or preserved original directory. Keep rollback copies outside the public document root. No Nginx reload is needed when only the document-root symlink changes.
+
+## Initial replacement, 9 October 2026
+
+- Website source commit: `124e473`.
+- Live release: `/var/www/ownsafeai-releases/site-20261009T034302Z`.
+- Original website preserved at: `/var/www/ownsafeai-releases/legacy-20261009T034302Z`.
