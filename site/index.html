@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172d2b">
+  <meta name="description" content="OwnSafeAI Plugin is being built to bring your notes and contexts into Claude, Codex and ChatGPT. One account, separate contexts, and notes you control.">
+  <meta property="og:title" content="OwnSafeAI Plugin — Your notes. Every AI. One home.">
+  <meta property="og:description" content="A shared home for the context you want your AI tools to remember. Open source and in development.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ownsafeai.com/">
+  <link rel="canonical" href="https://ownsafeai.com/">
+  <link rel="icon" type="image/svg+xml" href="/ownsafeai-mark.svg">
+  <link rel="stylesheet" href="/ownsafeai-site-v1.css">
+  <script src="/ownsafeai-preview-v1.js" defer></script>
+  <title>OwnSafeAI Plugin — Your context across AI tools</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="#" aria-label="OwnSafeAI Plugin home">
+      <svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="11" fill="currentColor"/><path d="M10 13.5h9a5 5 0 0 1 0 10h-9v-10Zm16-1h-4m4 5h-3m3 5h-2" fill="none" stroke="#c4f38b" stroke-width="2.5" stroke-linecap="round"/><circle cx="13.5" cy="18.5" r="1.8" fill="#c4f38b"/></svg>
+      <span>OwnSafeAI <span class="brand-label">Plugin</span></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#how-it-works">How it works</a>
+      <a href="#plans">Plans</a>
+      <a class="nav-source" href="https://github.com/Thinkelution/own-safe-ai">View source <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> Open source · In development</div>
+        <h1 id="hero-title">Your notes.<br>Every AI.<br><span>One home.</span></h1>
+        <p class="hero-description">Keep the things worth remembering in your own contexts. Bring the right notes into your next AI conversation, wherever you’re working.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#preview">Try the preview <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="https://github.com/Thinkelution/own-safe-ai">Follow the build <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="compatibility">
+          <span class="compatibility-label">Being built for</span>
+          <div class="platforms"><span>Claude</span><span>Codex</span><span>ChatGPT</span></div>
+          <p>One OwnSafeAI account. Connect once in each tool.</p>
+        </div>
+      </div>
+
+      <div class="preview-area" id="preview">
+        <div class="preview-caption"><span class="preview-dot"></span> INTERACTIVE PREVIEW <span class="preview-caption-end">Give it a try ↓</span></div>
+        <div class="workspace">
+          <div class="workspace-heading"><span class="workspace-symbol" aria-hidden="true">◈</span><span>Your contexts</span><span class="workspace-tag">Sample workspace</span></div>
+          <div class="context-tabs" role="tablist" aria-label="Sample contexts">
+            <button class="context-tab" id="tab-travel" type="button" role="tab" aria-controls="context-panel" aria-selected="true" data-context="travel"><span aria-hidden="true">↗</span> Travel</button>
+            <button class="context-tab" id="tab-work" type="button" role="tab" aria-controls="context-panel" aria-selected="false" tabindex="-1" data-context="work"><span aria-hidden="true">▤</span> Work</button>
+            <button class="context-tab" id="tab-personal" type="button" role="tab" aria-controls="context-panel" aria-selected="false" tabindex="-1" data-context="personal"><span aria-hidden="true">✳</span> Personal</button>
+          </div>
+          <div class="context-panel" id="context-panel" role="tabpanel" aria-labelledby="tab-travel" tabindex="0">
+            <div class="notes-heading"><span id="notes-label">3 notes · Travel</span><button type="button" class="add-note" id="add-note">+ Add note</button></div>
+            <div class="notes-list" id="notes-list">
+              <article class="note-card"><span class="note-type">PREFERENCE</span><p>I prefer quiet places, local food and a little room to explore.</p></article>
+              <article class="note-card"><span class="note-type">BUDGET</span><p>Keep hotels under $120 a night. Walkable neighbourhoods are a plus.</p></article>
+              <article class="note-card"><span class="note-type">UPCOMING</span><p>Planning a 5-day trip to Kyoto in November.</p></article>
+            </div>
+            <form class="note-form" id="note-form" hidden>
+              <label for="new-note">Add a sample note</label>
+              <textarea id="new-note" name="note" maxlength="500" rows="3" placeholder="Something you’d like this context to remember…" required></textarea>
+              <div class="note-form-actions"><span>Demo only. Don’t enter private information.</span><button type="button" class="small-button" id="cancel-note">Cancel</button><button type="submit" class="small-button save-button">Save note</button></div>
+            </form>
+          </div>
+          <div class="prompt-area">
+            <div class="prompt-heading"><span>BRING IT INTO YOUR PROMPT</span><label class="host-label" for="host-select"><span class="sr-only">AI tool</span><select id="host-select"><option value="Claude">Claude</option><option value="Codex">Codex</option><option value="ChatGPT">ChatGPT</option></select></label></div>
+            <p class="prompt-text" id="prompt-text">Use OwnSafeAI’s Travel context to help plan my trip.</p>
+            <button type="button" class="use-context" id="use-context">Use this context <span aria-hidden="true">→</span></button>
+            <div class="context-brief" id="context-brief" hidden>
+              <div class="brief-heading"><span id="brief-title">Ready for Claude</span><button type="button" id="copy-brief" class="copy-button">Copy prompt</button></div>
+              <p id="brief-description">Your saved notes, included with your request.</p>
+              <pre id="brief-content"></pre>
+            </div>
+          </div>
+        </div>
+        <p class="demo-disclaimer">Sample data only. Nothing connects to an AI account or sends email. Notes reset when this page reloads.</p>
+        <p class="sr-only" id="demo-status" role="status" aria-live="polite"></p>
+        <noscript><p class="demo-disclaimer">Enable JavaScript to try the interactive preview.</p></noscript>
+      </div>
+    </section>
+
+    <section class="statement-band" aria-label="Product purpose">
+      <div class="wrap statement-inner"><span class="band-symbol" aria-hidden="true">↳</span><p>A new conversation shouldn’t mean<br><strong>starting from zero.</strong></p><span class="band-aside">The context is yours.<br>Take it with you.</span></div>
+    </section>
+
+    <section class="how-section wrap" id="how-it-works" aria-labelledby="how-title">
+      <div class="section-heading"><div><p class="eyebrow">A LITTLE CONTEXT GOES A LONG WAY</p><h2 id="how-title">Save once.<br>Use where you need it.</h2></div><p class="section-intro">OwnSafeAI Plugin is being built for the notes you choose to keep, and the moments you choose to use them.</p></div>
+      <div class="steps-grid">
+        <article class="step"><span class="step-number">01 / SAVE</span><div class="step-illustration save-illustration" aria-hidden="true"><span class="mini-message">“Add this to my Travel notes.”</span><span class="mini-saved">✓ A note worth keeping</span></div><h3>Keep what matters.</h3><p>A preference, a decision, a useful answer. Ask the plugin to save it in the right context.</p></article>
+        <article class="step"><span class="step-number">02 / ORGANISE</span><div class="step-illustration organise-illustration" aria-hidden="true"><span>↗ Travel</span><span>▤ Work</span><span>✳ Personal</span></div><h3>Give each part of life a home.</h3><p>Separate your travel plans from your work notes. Choose which context to bring into a conversation.</p></article>
+        <article class="step"><span class="step-number">03 / USE</span><div class="step-illustration use-illustration" aria-hidden="true"><span class="mini-context">Your notes</span><span class="mini-arrow">→</span><span class="mini-prompt">Your next prompt <span>+ relevant context</span></span></div><h3>Pick up where you left off.</h3><p>Ask your AI tool to refer to your notes. Relevant context can travel with you, even when you switch tools.</p></article>
+      </div>
+    </section>
+
+    <section class="ownership-section wrap" aria-labelledby="ownership-title">
+      <div class="ownership-copy"><p class="eyebrow">YOUR NOTES, WITH YOU IN CONTROL</p><h2 id="ownership-title">A memory you<br>can actually read.</h2><p>We’re designing OwnSafeAI around editable notes. You should be able to see what’s saved, correct it, export it and remove it.</p><p class="ownership-detail">When you ask to use a context, the relevant notes will be shared with that AI tool. The product is designed around explicit saving and retrieval, with summaries linked back to the original notes.</p><a class="text-link" href="https://github.com/Thinkelution/own-safe-ai">Help shape the project <span aria-hidden="true">↗</span></a></div>
+      <div class="command-card"><div class="command-header"><span class="status-dot"></span> THE CONVERSATIONS WE’RE BUILDING FOR</div><ul><li><span>01</span> “Add this to my notes.”</li><li><span>02</span> “Use my Work context for this.”</li><li><span>03</span> “Update my travel preferences.”</li><li><span>04</span> “Email me this.” <small>Plus plan</small></li></ul><p>Plugin name: <strong>ownsafeai</strong>. The invocation will follow each tool’s supported plugin or connector interface.</p></div>
+    </section>
+
+    <section class="pricing-section wrap" id="plans" aria-labelledby="pricing-title">
+      <div class="pricing-heading"><p class="eyebrow">PLANNED LAUNCH PRICING</p><h2 id="pricing-title">Start with one context.<br>Make room for more.</h2><p>Signup and subscriptions will open when the service is ready.</p></div>
+      <div class="plans-grid">
+        <article class="plan plan-free"><div class="plan-heading"><h3>Free</h3><span class="plan-badge">No expiry</span></div><div class="price">$0 <span>forever</span></div><p class="plan-description">One context for something that matters to you.</p><ul class="feature-list"><li>1 context</li><li>Save, edit and retrieve notes</li><li>Use across supported AI tools</li><li>Export and delete your notes</li></ul><a class="button button-outline" href="https://github.com/Thinkelution/own-safe-ai">Follow the launch <span aria-hidden="true">↗</span></a></article>
+        <article class="plan plan-plus"><div class="plan-heading"><h3>Plus</h3><span class="plan-badge">More room</span></div><div class="price">$3 <span>/ month</span></div><p class="plan-description">Separate contexts for the different parts of your life.</p><ul class="feature-list"><li>5 contexts in total</li><li>Everything in Free</li><li>Email notes and answers to yourself</li><li>One account across supported tools</li></ul><a class="button button-lime" href="https://github.com/Thinkelution/own-safe-ai">Follow the launch <span aria-hidden="true">↗</span></a></article>
+      </div>
+      <p class="pricing-footnote">These are the intended plans for the hosted service. The plugin and account service are still in development; no payments are being collected.</p>
+    </section>
+
+    <section class="open-source-section wrap" aria-labelledby="source-title"><div><p class="eyebrow">BUILT IN THE OPEN</p><h2 id="source-title">Useful on its own.<br>Better with your ideas.</h2><p>OwnSafeAI Plugin is an open-source project. The website is live, the product is taking shape, and you can follow or contribute on GitHub.</p></div><a class="button button-dark" href="https://github.com/Thinkelution/own-safe-ai">Explore the repository <span aria-hidden="true">↗</span></a></section>
+  </main>
+
+  <footer class="site-footer wrap"><a class="brand footer-brand" href="#">OwnSafeAI <span class="brand-label">Plugin</span></a><p>Your notes. Every AI. One home.</p><div><a href="https://github.com/Thinkelution/own-safe-ai">GitHub ↗</a><a href="https://github.com/Thinkelution/own-safe-ai/blob/main/LICENSE">MIT License ↗</a></div></footer>
+</body>
+</html>
